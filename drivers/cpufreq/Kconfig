@@ -112,12 +112,22 @@ config CPU_FREQ_DEFAULT_GOV_WHEATLEY
 	---help---
 	  Use the CPUFreq governor 'wheatley' as default.
 
+
 config CPU_FREQ_DEFAULT_GOV_KRAKEN
  	bool "kraken"
  	select CPU_FREQ_GOV_KRAKEN
  	select CPU_FREQ_GOV_PERFORMANCE
  	help
 	  Use the CPUFreq governor 'kraken' as default.
+
+config CPU_FREQ_DEFAULT_GOV_UMBRELLA_CORE
+	bool "umbrella_core"
+	select CPU_FREQ_GOV_UMBRELLA_CORE
+	help
+	  Use the CPUFreq governor 'umbrella_core' as default. This allows
+	  you to get a full dynamic cpu frequency capable system by simply
+	  loading your cpufreq low-level hardware driver, using the
+	  'umbrella_core' governor for latency-sensitive workloads.
 
 endchoice
 
@@ -200,6 +210,15 @@ config CPU_FREQ_GOV_KRAKEN
  	  For details, take a look at linux/Documentation/cpu-freq.
  	  If in doubt, say N.
           default y
+
+config CPU_FREQ_GOV_UMBRELLA_CORE
+	tristate "'umbrella_core' cpufreq policy governor"
+	help
+	  'umbrella_core' - This driver adds a dynamic cpufreq policy governor
+	  designed for latency-sensitive workloads.
+
+	  The governor is based on interactive to provide a resident controller
+	  which interprets unnecessary battery drain as evil
 
 
 menu "x86 CPU frequency scaling drivers"
