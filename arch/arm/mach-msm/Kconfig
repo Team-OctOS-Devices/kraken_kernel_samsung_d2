@@ -2680,10 +2680,3 @@ config HAS_MACH_MEMUTILS
 	help
 	Faster memcpy performance for Krait
 endif
-
-config MSM_SLEEPER
-	bool "CPU hotplug driver"
-	default y
-	help
-	  CPU hotplug driver
-
