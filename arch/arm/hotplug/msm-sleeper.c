@@ -27,10 +27,10 @@
 #define MSM_SLEEPER_DEBUG		0
 #define DELAY				HZ
 #define DEF_UP_THRESHOLD		85
-#define DEF_MAX_ONLINE			4
+#define DEF_MAX_ONLINE			2
 #define DEF_DOWN_COUNT_MAX		10 /* 1 sec */
 #define DEF_UP_COUNT_MAX		5 /* 0.5 sec */
-#define DEF_SUSPEND_MAX_ONLINE		4
+#define DEF_SUSPEND_MAX_ONLINE		1
 #define DEF_PLUG_ALL			1
 
 struct msm_sleeper_data {
