@@ -23,7 +23,7 @@
 #define MSM_SLEEPER "msm_sleeper"
 #define MSM_SLEEPER_MAJOR_VERSION	4
 #define MSM_SLEEPER_MINOR_VERSION	1
-#define MSM_SLEEPER_ENABLED		1
+#define MSM_SLEEPER_ENABLED		0
 #define MSM_SLEEPER_DEBUG		0
 #define DELAY				HZ
 #define DEF_UP_THRESHOLD		85
@@ -124,7 +124,7 @@ static void __ref hotplug_func(struct work_struct *work)
 	}
 
 	for_each_online_cpu(cpu)
-		loadavg += cpufreq_quick_get_util(cpu);
+		loadavg += cpufreq_quick_get(cpu);
 
 	loadavg /= num_online_cpus();
 	
